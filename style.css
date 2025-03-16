@@ -1,117 +1,115 @@
-/* Style utama */
+/* CSS Update */
+:root {
+    --primary-color: #222;
+    --secondary-color: #fff;
+    --accent-color: #f39c12;
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+}
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
 }
 
-/* Header */
 header {
-    background: #222;
-    color: white;
-    padding: 20px 0;
-}
-
-/* Navigasi */
-nav {
-    background: #333;
-    padding: 10px 0;
-}
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    background: url('header.jpg') center/cover no-repeat;
+    height: 200px;
     display: flex;
+    align-items: center;
     justify-content: center;
-}
-nav ul li {
-    margin: 0 15px;
-}
-nav ul li a {
-    text-decoration: none;
-    color: white;  /* Warna font navigasi */
-    padding: 10px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-nav ul li a:hover {
-    color: #f4a261;
-}
-
-/* Marquee */
-marquee {
-    background: #444;
-    color: white;
-    padding: 10px;
-    font-size: 14px;
-    font-style: italic;
-}
-
-/* Section */
-section {
-    padding: 20px;
-    max-width: 700px;
-    margin: auto;
-    background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-h2 {
-    color: #222;
-}
-
-/* Artikel */
-.artikel-item {
-    background: #e8f0f2; /* Warna kalem */
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-.artikel-item h3 a {
-    color: #2c3e50;
-    text-decoration: none;
-}
-.artikel-item h3 a:hover {
-    color: #f4a261;
-}
-
-/* Galeri */
-.foto-item {
-    background: #f9f9f9;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
-}
-.foto-item img {
-    width: 100%;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.foto-item p {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #555;
+    color: white;
+    font-size: 24px;
 }
 
-/* Tombol kategori galeri */
-#gallery-navigation button {
-    background: #444;
-    color: white;
-    border: none;
+nav {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    color: var(--secondary-color);
+    text-decoration: none;
     padding: 10px 15px;
-    margin: 5px;
+}
+
+nav a:hover {
+    background-color: var(--accent-color);
+    border-radius: 5px;
+}
+
+.article {
+    padding: 20px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+}
+
+.article:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    border-radius: 5px;
+}
+
+#mode-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 10px;
     cursor: pointer;
     border-radius: 5px;
-    transition: 0.3s;
 }
-#gallery-navigation button:hover {
-    background: #f4a261;
+
+/* Dark Mode */
+.dark-mode {
+    --bg-color: #222;
+    --text-color: #fff;
+    --primary-color: #444;
+    --secondary-color: #ccc;
+}
+
+.dark-mode nav {
+    background-color: var(--primary-color);
+}
+
+.dark-mode .article {
+    background-color: #333;
+    color: white;
+}
+
+/* Artikel Slide */
+#article-slider {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.article-slide {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.article-slide.active {
+    opacity: 1;
 }
