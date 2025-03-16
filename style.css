@@ -1,85 +1,90 @@
+/* Style utama */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f4f4f4;
     color: #333;
-    line-height: 1.6;
-}
-
-header {
-    background: #ffffff;
-    color: #222;
-    padding: 20px;
     text-align: center;
-    border-bottom: 2px solid #ddd;
 }
 
+/* Header */
+header {
+    background: #222;
+    color: white;
+    padding: 20px 0;
+}
+
+/* Navigasi */
+nav {
+    background: #333;
+    padding: 10px 0;
+}
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
     justify-content: center;
-    background: #fff;
-    margin: 0;
-    border-bottom: 1px solid #ddd;
 }
-
 nav ul li {
     margin: 0 15px;
 }
-
 nav ul li a {
     text-decoration: none;
-    color: #333;
+    color: white;
     padding: 10px;
-    display: inline-block;
     font-weight: bold;
+    transition: 0.3s;
 }
-
 nav ul li a:hover {
-    color: #0077cc;
+    color: #f4a261;
 }
 
+/* Marquee */
 marquee {
-    background: #f1f1f1;
-    color: #444;
+    background: #444;
+    color: white;
     padding: 10px;
     font-size: 14px;
     font-style: italic;
 }
 
+/* Section */
 section {
     padding: 20px;
     max-width: 700px;
     margin: auto;
     background: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    margin-top: 20px;
 }
 
 h2 {
-    font-size: 24px;
     color: #222;
 }
 
-p {
-    font-size: 16px;
-    color: #555;
+/* Artikel & Galeri */
+.artikel-item, .foto-item {
+    background: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Tombol kategori galeri */
 #gallery-navigation button {
-    background: #0077cc;
+    background: #444;
     color: white;
     border: none;
-    padding: 8px 12px;
+    padding: 10px 15px;
     margin: 5px;
     cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
+    border-radius: 5px;
+    transition: 0.3s;
 }
-
 #gallery-navigation button:hover {
-    background: #005fa3;
+    background: #f4a261;
 }
