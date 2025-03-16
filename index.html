@@ -5,120 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Pribadi</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.png" type="image/png">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            text-align: center;
-        }
-        header {
-            background: #222;
-            color: white;
-            padding: 20px 0;
-        }
-        nav {
-            background: #333;
-            padding: 10px 0;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            padding: 10px;
-            font-weight: bold;
-        }
-        nav ul li a:hover {
-            color: #f4a261;
-        }
-        marquee {
-            background: #444;
-            color: white;
-            padding: 10px;
-            font-size: 14px;
-            font-style: italic;
-        }
-        section {
-            padding: 20px;
-            max-width: 700px;
-            margin: auto;
-            background: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        h2 {
-            color: #222;
-        }
-        .artikel-item, .foto-item {
-            background: #f9f9f9;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-    </style>
 </head>
 <body>
     <header>
         <h1>Blog Pribadi</h1>
     </header>
+    
     <nav>
         <ul>
-            <li><a href="#">Beranda</a></li>
-            <li><a href="#artikel">Artikel</a></li>
-            <li><a href="#galeri">Galeri</a></li>
-            <li><a href="#kontak">Kontak</a></li>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="artikel.html">Artikel</a></li>
+            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
         </ul>
     </nav>
-    <marquee>Selamat datang di blog pribadi saya! Semoga bermanfaat. 🚀</marquee>
-    <section id="artikel">
+
+    <marquee>Selamat datang di blog pribadi saya! Temukan artikel menarik dan galeri foto keren di sini.</marquee>
+
+    <section>
         <h2>Artikel Terbaru</h2>
-        <input type="text" id="searchArtikel" placeholder="Cari artikel...">
-        <select id="kategori">
-            <option value="semua">Semua Kategori</option>
-            <option value="teknologi">Teknologi</option>
-            <option value="motivasi">Motivasi</option>
-            <option value="islami">Islami</option>
-        </select>
-        <div class="artikel-item teknologi">
-            <h3>Perkembangan AI di Masa Depan</h3>
+        <div class="artikel-item">
+            <h3><a href="artikel/ai.html">Perkembangan AI di Masa Depan</a></h3>
             <p>AI semakin berkembang pesat, bagaimana dampaknya bagi manusia?</p>
         </div>
-        <div class="artikel-item motivasi">
-            <h3>Mengatasi Rasa Malas</h3>
-            <p>Cara mudah untuk tetap produktif setiap hari.</p>
-        </div>
-        <div class="artikel-item islami">
-            <h3>Pentingnya Sholat Tepat Waktu</h3>
-            <p>Kenapa sholat tepat waktu bisa mengubah hidup kita?</p>
+        <div class="artikel-item">
+            <h3><a href="artikel/teknologi.html">Teknologi Masa Depan</a></h3>
+            <p>Bagaimana teknologi akan mengubah cara hidup kita?</p>
         </div>
     </section>
-    <section id="galeri">
+    
+    <section>
         <h2>Galeri Foto</h2>
         <div id="gallery-navigation">
-            <button onclick="tampilkanKategori('semua')">Semua</button>
-            <button onclick="tampilkanKategori('alam')">Alam</button>
-            <button onclick="tampilkanKategori('kota')">Kota</button>
-            <button onclick="tampilkanKategori('random')">Random</button>
+            <button onclick="window.location.href='galeri/alam.html'">Alam</button>
+            <button onclick="window.location.href='galeri/kota.html'">Kota</button>
         </div>
-        <div class="foto-item alam"><img src="image/alam1.jpg" alt="Pemandangan Alam"></div>
-        <div class="foto-item kota"><img src="image/kota1.jpg" alt="Suasana Kota"></div>
-        <div class="foto-item random"><img src="image/random1.jpg" alt="Foto Random"></div>
     </section>
-    <section id="kutipan-motivasi"></section>
+
     <script src="script.js"></script>
 </body>
 </html>
