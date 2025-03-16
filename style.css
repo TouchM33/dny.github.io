@@ -32,7 +32,7 @@ nav ul li {
 }
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: white;  /* Warna font navigasi */
     padding: 10px;
     font-weight: bold;
     transition: 0.3s;
@@ -65,13 +65,40 @@ h2 {
     color: #222;
 }
 
-/* Artikel & Galeri */
-.artikel-item, .foto-item {
+/* Artikel */
+.artikel-item {
+    background: #e8f0f2; /* Warna kalem */
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.artikel-item h3 a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+.artikel-item h3 a:hover {
+    color: #f4a261;
+}
+
+/* Galeri */
+.foto-item {
     background: #f9f9f9;
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.foto-item img {
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.foto-item p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
 }
 
 /* Tombol kategori galeri */
