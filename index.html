@@ -8,57 +8,37 @@
 </head>
 <body>
     <header>
-        <img src="header.jpg" alt="Header Blog">
         <h1>Blog Pribadi</h1>
+        <button id="mode-toggle">Mode Malam</button>
     </header>
     
     <nav>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li class="dropdown">
-                <a href="#artikel">Artikel</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#teknologi">Teknologi</a></li>
-                    <li><a href="#lifestyle">Lifestyle</a></li>
-                    <li><a href="#travel">Travel</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#galeri">Galeri</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#travel">Travel</a></li>
-                    <li><a href="#random">Random</a></li>
-                    <li class="dropdown">
-                        <a href="#kota">Kota</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#bali">Bali</a></li>
-                            <li><a href="#gresik">Gresik</a></li>
-                            <li><a href="#bogor">Bogor</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="#kontak">Kontak</a></li>
+            <li><a href="#" class="nav-link" data-target="artikel.html">Artikel</a></li>
+            <li><a href="#" class="nav-link" data-target="galeri.html">Galeri</a></li>
+            <li><a href="#" class="nav-link" data-target="kontak.html">Kontak</a></li>
         </ul>
     </nav>
-    
-    <section id="article-slider">
-        <div class="article-slide active" style="background-image: url('tech-bg.jpg');">
-            <h2>Artikel Teknologi</h2>
-            <p>Isi artikel tentang teknologi...</p>
-        </div>
-        <div class="article-slide" style="background-image: url('lifestyle-bg.jpg');">
-            <h2>Artikel Lifestyle</h2>
-            <p>Isi artikel tentang lifestyle...</p>
-        </div>
-        <div class="article-slide" style="background-image: url('travel-bg.jpg');">
-            <h2>Artikel Travel</h2>
-            <p>Isi artikel tentang travel...</p>
-        </div>
+
+    <section id="marquee">
+        <marquee>Ayo baca artikel terbaru dan lihat galeri foto keren!</marquee>
     </section>
     
-    <button id="mode-toggle">Mode Malam</button>
-    
+    <section id="artikel-beranda">
+        <div class="article-slide active" data-category="teknologi">
+            <h2>Artikel Teknologi</h2>
+            <p>Isi artikel teknologi...</p>
+        </div>
+        <div class="article-slide" data-category="lifestyle">
+            <h2>Artikel Lifestyle</h2>
+            <p>Isi artikel lifestyle...</p>
+        </div>
+        <div class="article-slide" data-category="motivasi">
+            <h2>Artikel Motivasi</h2>
+            <p>Isi artikel motivasi...</p>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2025 Blog Pribadi</p>
     </footer>
