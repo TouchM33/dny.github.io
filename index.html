@@ -5,69 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Pribadi</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background: #222;
+            color: white;
+            padding: 20px 0;
+        }
+        nav {
+            background: #333;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+        }
+        nav ul li a:hover {
+            color: #f4a261;
+        }
+        marquee {
+            background: #444;
+            color: white;
+            padding: 10px;
+            font-size: 14px;
+            font-style: italic;
+        }
+        section {
+            padding: 20px;
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        h2 {
+            color: #222;
+        }
+        .artikel-item, .foto-item {
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Blog Pribadi</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#artikel">Artikel</a></li>
-                <li><a href="#arsip">Arsip</a></li>
-                <li><a href="#galeri">Galeri</a></li>
-                <li><a href="#tentang">Tentang</a></li>
-                <li><a href="#kontak">Kontak</a></li>
-            </ul>
-        </nav>
-        <marquee behavior="scroll" direction="left">Selamat datang di blog gue! Tetap semangat dan terus berkarya! 🚀🔥</marquee>
     </header>
-    
-    <section id="home">
-        <h2>Selamat Datang di Blog Gue!</h2>
-        <p>Ini adalah tempat gue berbagi artikel dan foto keren.</p>
-        <div id="kutipan-motivasi"></div>
-    </section>
-    
+    <nav>
+        <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#artikel">Artikel</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+    <marquee>Selamat datang di blog pribadi saya! Semoga bermanfaat. 🚀</marquee>
     <section id="artikel">
-        <h2>Artikel</h2>
-        <label for="kategori">Filter Kategori:</label>
-        <select id="kategori" onchange="filterArtikel()">
-            <option value="semua">Semua</option>
+        <h2>Artikel Terbaru</h2>
+        <input type="text" id="searchArtikel" placeholder="Cari artikel...">
+        <select id="kategori">
+            <option value="semua">Semua Kategori</option>
             <option value="teknologi">Teknologi</option>
-            <option value="travel">Travel</option>
-            <option value="fotografi">Fotografi</option>
+            <option value="motivasi">Motivasi</option>
+            <option value="islami">Islami</option>
         </select>
-        <input type="text" id="searchArtikel" placeholder="Cari artikel..." onkeyup="cariArtikel()">
-        <div id="daftar-artikel"></div>
+        <div class="artikel-item teknologi">
+            <h3>Perkembangan AI di Masa Depan</h3>
+            <p>AI semakin berkembang pesat, bagaimana dampaknya bagi manusia?</p>
+        </div>
+        <div class="artikel-item motivasi">
+            <h3>Mengatasi Rasa Malas</h3>
+            <p>Cara mudah untuk tetap produktif setiap hari.</p>
+        </div>
+        <div class="artikel-item islami">
+            <h3>Pentingnya Sholat Tepat Waktu</h3>
+            <p>Kenapa sholat tepat waktu bisa mengubah hidup kita?</p>
+        </div>
     </section>
-    
     <section id="galeri">
         <h2>Galeri Foto</h2>
         <div id="gallery-navigation">
             <button onclick="tampilkanKategori('semua')">Semua</button>
             <button onclick="tampilkanKategori('alam')">Alam</button>
             <button onclick="tampilkanKategori('kota')">Kota</button>
-            <button onclick="tampilkanKategori('potret')">Potret</button>
+            <button onclick="tampilkanKategori('random')">Random</button>
         </div>
-        <div id="daftar-foto"></div>
+        <div class="foto-item alam"><img src="image/alam1.jpg" alt="Pemandangan Alam"></div>
+        <div class="foto-item kota"><img src="image/kota1.jpg" alt="Suasana Kota"></div>
+        <div class="foto-item random"><img src="image/random1.jpg" alt="Foto Random"></div>
     </section>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const kutipanMotivasi = [
-                "Kesuksesan adalah hasil dari kerja keras dan doa. 💪",
-                "Setiap hari adalah kesempatan baru untuk belajar. 📖",
-                "Tetap semangat, jangan menyerah! 🚀",
-                "Jangan takut gagal, karena gagal adalah awal dari kesuksesan. 🌟"
-            ];
-            
-            function tampilkanKutipan() {
-                const randomIndex = Math.floor(Math.random() * kutipanMotivasi.length);
-                document.getElementById("kutipan-motivasi").innerHTML = `<blockquote>${kutipanMotivasi[randomIndex]}</blockquote>`;
-            }
-            tampilkanKutipan();
-        });
-    </script>
+    <section id="kutipan-motivasi"></section>
+    <script src="script.js"></script>
 </body>
 </html>
