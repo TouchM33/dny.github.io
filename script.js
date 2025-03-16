@@ -1,59 +1,68 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Kutipan Motivasi Random
-    const kutipanMotivasi = [
-        "Kesuksesan adalah hasil dari kerja keras dan doa. 💪",
-        "Setiap hari adalah kesempatan baru untuk belajar. 📖",
-        "Tetap semangat, jangan menyerah! 🚀",
-        "Jangan takut gagal, karena gagal adalah awal dari kesuksesan. 🌟"
-    ];
-    function tampilkanKutipan() {
-        const randomIndex = Math.floor(Math.random() * kutipanMotivasi.length);
-        document.getElementById("kutipan-motivasi").innerHTML = `<blockquote>${kutipanMotivasi[randomIndex]}</blockquote>`;
-    }
-    tampilkanKutipan();
+document.addEventListener("DOMContentLoaded", function() {
+    let slides = document.querySelectorAll(".article-slide");
+    let currentSlide = 0;
 
-    // Filter Artikel
-    function filterArtikel() {
-        let kategori = document.getElementById("kategori").value;
-        let artikel = document.querySelectorAll(".artikel-item");
-        
-        artikel.forEach(item => {
-            if (kategori === "semua" || item.classList.contains(kategori)) {
-                item.style.display = "block";
-            } else {
-                item.style.display = "none";
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove("active");
+            if (i === index) {
+                slide.classList.add("active");
             }
         });
     }
-    document.getElementById("kategori").addEventListener("change", filterArtikel);
 
-    // Pencarian Artikel
-    function cariArtikel() {
-        let keyword = document.getElementById("searchArtikel").value.toLowerCase();
-        let artikel = document.querySelectorAll(".artikel-item h3");
-        
-        artikel.forEach(title => {
-            let item = title.parentElement;
-            if (title.innerText.toLowerCase().includes(keyword)) {
-                item.style.display = "block";
-            } else {
-                item.style.display = "none";
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 2000);
+
+    // Mode Malam & Siang
+    const modeToggle = document.getElementById("mode-toggle");
+    modeToggle.addEventListener("click", function() {
+        document.body.classList.toggle("dark-mode");
+        if (document.body.classList.contains("dark-mode")) {
+            modeToggle.textContent = "Mode Siang";
+        } else {
+            modeToggle.textContent = "Mode Malam";
+        }
+    });
+
+    // Navigasi Menu Utama ke Halaman Pilihan
+    document.querySelectorAll(".nav-link").forEach(nav => {
+        nav.addEventListener("click", function(event) {
+            let targetPage = this.getAttribute("data-target");
+            if (targetPage) {
+                window.location.href = targetPage;
             }
         });
-    }
-    document.getElementById("searchArtikel").addEventListener("keyup", cariArtikel);
+    });
 
-    // Navigasi Galeri Foto
-    function tampilkanKategori(kategori) {
-        let foto = document.querySelectorAll(".foto-item");
-        
-        foto.forEach(item => {
-            if (kategori === "semua" || item.classList.contains(kategori)) {
-                item.style.display = "block";
-            } else {
-                item.style.display = "none";
+    // Sub-kategori Galeri
+    document.querySelectorAll(".gallery-link").forEach(link => {
+        link.addEventListener("click", function(event) {
+            let subGallery = this.getAttribute("data-gallery");
+            if (subGallery) {
+                window.location.href = subGallery;
             }
         });
-    }
-    window.tampilkanKategori = tampilkanKategori;
+    });
+
+    // Header Gambar Dinamis untuk Artikel
+    document.querySelectorAll(".article-item").forEach(article => {
+        let category = article.getAttribute("data-category");
+        if (category) {
+            article.style.backgroundImage = `url('images/${category}.jpg')`;
+            article.style.backgroundSize = "cover";
+            article.style.backgroundPosition = "center";
+            article.style.opacity = "0.8";
+        }
+    });
+
+    // Menyesuaikan Ukuran Gambar agar Tidak Melebar
+    document.querySelectorAll("img").forEach(img => {
+        img.style.maxWidth = "100%";
+        img.style.height = "auto";
+    });
 });
