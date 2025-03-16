@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Pribadi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Blog Pribadi</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#artikel">Artikel</a></li>
+                <li><a href="#galeri">Galeri</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="home">
+        <h2>Selamat Datang di Blog Gue!</h2>
+        <p>Ini adalah tempat gue berbagi artikel dan foto keren.</p>
+    </section>
+    
+    <section id="artikel">
+        <h2>Artikel</h2>
+        <div id="daftar-artikel">
+            <!-- Artikel akan dimuat lewat JavaScript -->
+        </div>
+    </section>
+    
+    <section id="galeri">
+        <h2>Galeri Foto</h2>
+        <div id="kategori-foto">
+            <button onclick="tampilkanKategori('alam')">Alam</button>
+            <button onclick="tampilkanKategori('kota')">Kota</button>
+            <button onclick="tampilkanKategori('potret')">Potret</button>
+        </div>
+        <div id="daftar-foto">
+            <!-- Foto akan dimuat lewat JavaScript -->
+        </div>
+    </section>
+    
+    <section id="tentang">
+        <h2>Tentang Gue</h2>
+        <p>Gue seorang blogger yang suka berbagi pengalaman dan karya fotografi.</p>
+    </section>
+    
+    <section id="kontak">
+        <h2>Kontak</h2>
+        <p>Email: <a href="mailto:email@example.com">email@example.com</a></p>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
