@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Pribadi</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <header>
@@ -13,47 +14,60 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#artikel">Artikel</a></li>
+                <li><a href="#arsip">Arsip</a></li>
                 <li><a href="#galeri">Galeri</a></li>
                 <li><a href="#tentang">Tentang</a></li>
                 <li><a href="#kontak">Kontak</a></li>
             </ul>
         </nav>
+        <marquee behavior="scroll" direction="left">Selamat datang di blog gue! Tetap semangat dan terus berkarya! 🚀🔥</marquee>
     </header>
     
     <section id="home">
         <h2>Selamat Datang di Blog Gue!</h2>
         <p>Ini adalah tempat gue berbagi artikel dan foto keren.</p>
+        <div id="kutipan-motivasi"></div>
     </section>
     
     <section id="artikel">
         <h2>Artikel</h2>
-        <div id="daftar-artikel">
-            <!-- Artikel akan dimuat lewat JavaScript -->
-        </div>
+        <label for="kategori">Filter Kategori:</label>
+        <select id="kategori" onchange="filterArtikel()">
+            <option value="semua">Semua</option>
+            <option value="teknologi">Teknologi</option>
+            <option value="travel">Travel</option>
+            <option value="fotografi">Fotografi</option>
+        </select>
+        <input type="text" id="searchArtikel" placeholder="Cari artikel..." onkeyup="cariArtikel()">
+        <div id="daftar-artikel"></div>
     </section>
     
     <section id="galeri">
         <h2>Galeri Foto</h2>
-        <div id="kategori-foto">
+        <div id="gallery-navigation">
+            <button onclick="tampilkanKategori('semua')">Semua</button>
             <button onclick="tampilkanKategori('alam')">Alam</button>
             <button onclick="tampilkanKategori('kota')">Kota</button>
             <button onclick="tampilkanKategori('potret')">Potret</button>
         </div>
-        <div id="daftar-foto">
-            <!-- Foto akan dimuat lewat JavaScript -->
-        </div>
+        <div id="daftar-foto"></div>
     </section>
     
-    <section id="tentang">
-        <h2>Tentang Gue</h2>
-        <p>Gue seorang blogger yang suka berbagi pengalaman dan karya fotografi.</p>
-    </section>
-    
-    <section id="kontak">
-        <h2>Kontak</h2>
-        <p>Email: <a href="mailto:email@example.com">email@example.com</a></p>
-    </section>
-    
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const kutipanMotivasi = [
+                "Kesuksesan adalah hasil dari kerja keras dan doa. 💪",
+                "Setiap hari adalah kesempatan baru untuk belajar. 📖",
+                "Tetap semangat, jangan menyerah! 🚀",
+                "Jangan takut gagal, karena gagal adalah awal dari kesuksesan. 🌟"
+            ];
+            
+            function tampilkanKutipan() {
+                const randomIndex = Math.floor(Math.random() * kutipanMotivasi.length);
+                document.getElementById("kutipan-motivasi").innerHTML = `<blockquote>${kutipanMotivasi[randomIndex]}</blockquote>`;
+            }
+            tampilkanKutipan();
+        });
+    </script>
 </body>
 </html>
