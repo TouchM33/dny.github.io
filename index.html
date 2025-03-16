@@ -8,40 +8,61 @@
 </head>
 <body>
     <header>
+        <img src="header.jpg" alt="Header Blog">
         <h1>Blog Pribadi</h1>
     </header>
     
     <nav>
         <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="artikel.html">Artikel</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
+            <li><a href="#">Home</a></li>
+            <li class="dropdown">
+                <a href="#artikel">Artikel</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#teknologi">Teknologi</a></li>
+                    <li><a href="#lifestyle">Lifestyle</a></li>
+                    <li><a href="#travel">Travel</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#galeri">Galeri</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#travel">Travel</a></li>
+                    <li><a href="#random">Random</a></li>
+                    <li class="dropdown">
+                        <a href="#kota">Kota</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#bali">Bali</a></li>
+                            <li><a href="#gresik">Gresik</a></li>
+                            <li><a href="#bogor">Bogor</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#kontak">Kontak</a></li>
         </ul>
     </nav>
-
-    <marquee>Selamat datang di blog pribadi saya! Temukan artikel menarik dan galeri foto keren di sini.</marquee>
-
-    <section>
-        <h2>Artikel Terbaru</h2>
-        <div class="artikel-item">
-            <h3><a href="artikel/ai.html">Perkembangan AI di Masa Depan</a></h3>
-            <p>AI semakin berkembang pesat, bagaimana dampaknya bagi manusia?</p>
+    
+    <section id="article-slider">
+        <div class="article-slide active" style="background-image: url('tech-bg.jpg');">
+            <h2>Artikel Teknologi</h2>
+            <p>Isi artikel tentang teknologi...</p>
         </div>
-        <div class="artikel-item">
-            <h3><a href="artikel/teknologi.html">Teknologi Masa Depan</a></h3>
-            <p>Bagaimana teknologi akan mengubah cara hidup kita?</p>
+        <div class="article-slide" style="background-image: url('lifestyle-bg.jpg');">
+            <h2>Artikel Lifestyle</h2>
+            <p>Isi artikel tentang lifestyle...</p>
+        </div>
+        <div class="article-slide" style="background-image: url('travel-bg.jpg');">
+            <h2>Artikel Travel</h2>
+            <p>Isi artikel tentang travel...</p>
         </div>
     </section>
     
-    <section>
-        <h2>Galeri Foto</h2>
-        <div id="gallery-navigation">
-            <button onclick="window.location.href='galeri/alam.html'">Alam</button>
-            <button onclick="window.location.href='galeri/kota.html'">Kota</button>
-        </div>
-    </section>
-
+    <button id="mode-toggle">Mode Malam</button>
+    
+    <footer>
+        <p>&copy; 2025 Blog Pribadi</p>
+    </footer>
+    
     <script src="script.js"></script>
 </body>
 </html>
