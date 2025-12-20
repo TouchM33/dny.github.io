@@ -1,48 +1,94 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Pribadi</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Pribadi Dani</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: #020617;
+      border-bottom: 1px solid #1e293b;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    header p {
+      color: #94a3b8;
+    }
+    main {
+      max-width: 720px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    article {
+      background: #020617;
+      padding: 1.5rem;
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    article h2 {
+      margin-top: 0;
+    }
+    .date {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Blog Pribadi</h1>
-        <button id="mode-toggle">Mode Malam</button>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#" class="nav-link" data-target="artikel.html">Artikel</a></li>
-            <li><a href="#" class="nav-link" data-target="galeri.html">Galeri</a></li>
-            <li><a href="#" class="nav-link" data-target="kontak.html">Kontak</a></li>
-        </ul>
-    </nav>
+  <header>
+    <h1>Catatan Hidup Dani</h1>
+    <p>Tempat menulis pikiran, perjalanan batin, dan pelajaran hidup</p>
+  </header>
 
-    <section id="marquee">
-        <marquee>Ayo baca artikel terbaru dan lihat galeri foto keren!</marquee>
-    </section>
-    
-    <section id="artikel-beranda">
-        <div class="article-slide active" data-category="teknologi">
-            <h2>Artikel Teknologi</h2>
-            <p>Isi artikel teknologi...</p>
-        </div>
-        <div class="article-slide" data-category="lifestyle">
-            <h2>Artikel Lifestyle</h2>
-            <p>Isi artikel lifestyle...</p>
-        </div>
-        <div class="article-slide" data-category="motivasi">
-            <h2>Artikel Motivasi</h2>
-            <p>Isi artikel motivasi...</p>
-        </div>
-    </section>
+  <main>
+    <article>
+      <h2>Awal Menulis</h2>
+      <div class="date">19 Desember 2025</div>
+      <p>
+        Ini adalah tulisan pertamaku. Blog ini aku buat sebagai ruang jujur untuk
+        bercerita tentang hidup, kegagalan, harapan, dan proses menjadi manusia
+        yang lebih baik.
+      </p>
+    </article>
 
-    <footer>
-        <p>&copy; 2025 Blog Pribadi</p>
-    </footer>
-    
-    <script src="script.js"></script>
+    <article>
+      <h2>Tentang Bertahan dan Melepaskan</h2>
+      <div class="date">20 Desember 2025</div>
+      <p>
+        Ada kalanya bertahan terasa seperti perjuangan, dan melepaskan terasa
+        seperti kekalahan. Tapi hidup sering kali bukan tentang menang atau kalah,
+        melainkan tentang ikhlas.
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    © 2025 Dani — Ditulis dengan jujur, dipublikasikan lewat GitHub Pages
+  </footer>
 </body>
 </html>
