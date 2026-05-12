@@ -1,1 +1,452 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruang Luka — Puisi Galau</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #050816;
+      --card: rgba(255,255,255,0.06);
+      --glass: rgba(255,255,255,0.08);
+      --text: #f5f5f5;
+      --muted: #b4b4b4;
+      --accent: #8b5cf6;
+      --accent2: #ec4899;
+      --shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #12142b, #050816 60%);
+      color: var(--text);
+      overflow-x: hidden;
+      min-height: 100vh;
+      perspective: 1000px;
+    }
+
+    canvas#stars {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .gradient {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139,92,246,0.35), transparent 70%);
+      filter: blur(80px);
+      top: -200px;
+      right: -100px;
+      z-index: -1;
+      animation: float 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0px) translateX(0px); }
+      to { transform: translateY(80px) translateX(-50px); }
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+
+    .hero {
+      max-width: 900px;
+      animation: fadeUp 1.2s ease;
+      transform-style: preserve-3d;
+    }
+
+    .hero h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 1;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #ffffff, #a78bfa, #f9a8d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 10px 25px rgba(139,92,246,0.4);
+      transition: 0.4s ease;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.04);
+      box-shadow: 0 15px 35px rgba(236,72,153,0.45);
+    }
+
+    section {
+      padding: 100px 8%;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      margin-bottom: 3rem;
+      font-family: 'Cinzel', serif;
+      text-align: center;
+    }
+
+    .poetry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .poem-card {
+      position: relative;
+      padding: 2rem;
+      border-radius: 24px;
+      background: var(--glass);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden;
+      transition: 0.5s ease;
+      transform-style: preserve-3d;
+      box-shadow: var(--shadow);
+    }
+
+    .poem-card::before {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
+      top: -80px;
+      right: -80px;
+    }
+
+    .poem-card:hover {
+      transform: rotateY(10deg) rotateX(8deg) translateY(-10px);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .poem-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+
+    .poem-card p {
+      color: #d4d4d4;
+      line-height: 1.9;
+      white-space: pre-line;
+    }
+
+    .quote {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.8rem;
+      line-height: 2;
+      color: #e5e5e5;
+      opacity: 0.8;
+      font-style: italic;
+    }
+
+    .music-box {
+      margin: 4rem auto 0;
+      max-width: 600px;
+      background: rgba(255,255,255,0.06);
+      padding: 1.5rem;
+      border-radius: 20px;
+      backdrop-filter: blur(20px);
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #8f8f8f;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .floating-heart {
+      position: fixed;
+      color: rgba(255,255,255,0.25);
+      font-size: 20px;
+      animation: rise linear forwards;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    @keyframes rise {
+      from {
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .typing {
+      border-right: 2px solid white;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+
+      .quote {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="stars"></canvas>
+  <div class="gradient"></div>
+
+  <header>
+    <div class="hero">
+      <h1 class="typing" id="typing"></h1>
+      <p>
+        Tempat seluruh luka disimpan menjadi kata.
+        Tempat rindu berubah menjadi puisi.
+        Tempat seseorang tetap hidup walau telah pergi.
+      </p>
+      <a href="#puisi" class="btn">Masuk ke Ruang Luka</a>
+    </div>
+  </header>
+
+  <section id="puisi">
+    <h2 class="section-title">Puisi yang Tak Pernah Sembuh</h2>
+
+    <div class="poetry-grid">
+      <div class="poem-card">
+        <h3>Hujan dan Kamu</h3>
+        <p>
+Aku masih menyebut namamu
+pada hujan yang turun diam-diam.
+
+Sebab hanya hujan
+yang tahu bagaimana rasanya jatuh
+berulang kali.
+        </p>
+      </div>
+
+      <div class="poem-card">
+        <h3>Rumah yang Pergi</h3>
+        <p>
+Dulu aku pulang kepadamu.
+Kini aku pulang ke kenangan.
+
+Dan ternyata,
+kenangan tidak pernah benar-benar
+membukakan pintu.
+        </p>
+      </div>
+
+      <div class="poem-card">
+        <h3>Pukul 02.13</h3>
+        <p>
+Malam selalu membawa wajahmu.
+
+Aku mencoba tidur,
+tapi rinduku lebih terjaga
+daripada mataku.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="quote">
+      “Beberapa orang datang bukan untuk menetap,
+      melainkan untuk mengajarkan bahwa kehilangan
+      juga bisa terasa seperti rumah.”
+    </div>
+
+    <div class="music-box">
+      <h3>Musik untuk Menemani Luka</h3>
+      <p style="margin-top:10px;color:#b4b4b4;">
+        Ganti source musik di bawah dengan lagu galau favoritmu.
+      </p>
+
+      <audio controls autoplay loop>
+        <source src="musik.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 — Dibuat dengan rasa yang belum selesai.
+  </footer>
+
+  <script>
+    // Typing Animation
+    const text = 'RUANG LUKA';
+    const typing = document.getElementById('typing');
+    let i = 0;
+
+    function type() {
+      if (i < text.length) {
+        typing.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 140);
+      }
+    }
+
+    type();
+
+    // Floating Hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('floating-heart');
+      heart.innerHTML = '✦';
+
+      heart.style.left = Math.random() * innerWidth + 'px';
+      heart.style.animationDuration = 4 + Math.random() * 6 + 's';
+      heart.style.fontSize = 10 + Math.random() * 25 + 'px';
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
+
+    setInterval(createHeart, 500);
+
+    // 3D Tilt Animation
+    const cards = document.querySelectorAll('.poem-card');
+
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateY = ((x / rect.width) - 0.5) * 20;
+        const rotateX = ((y / rect.height) - 0.5) * -20;
+
+        card.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) scale(1.03)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateY(0) rotateX(0)';
+      });
+    });
+
+    // Stars Background
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let stars = [];
+
+    for(let i = 0; i < 180; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5,
+        speed: Math.random() * 0.5
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+
+      ctx.fillStyle = 'white';
+
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+
+        star.y += star.speed;
+
+        if(star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+
+      requestAnimationFrame(drawStars);
+    }
+
+    drawStars();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+
+</body>
+</html>
